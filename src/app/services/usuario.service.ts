@@ -20,4 +20,13 @@ export class UsuarioService {
       })
     );
   }
+
+  getUsuarioPorId(id: string): Observable<Usuario>  {
+    return this.http.get<Usuario>(`${this.URL}/users/${id}`)
+    .pipe(
+      map( (resp : any) => {
+        return resp.data;
+      })
+    );
+  }
 }
